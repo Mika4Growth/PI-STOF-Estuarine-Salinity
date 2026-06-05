@@ -32,19 +32,24 @@ pip install -r requirements.txt
 The codebase is structured to decouple data engineering from the optimization engine. You can replicate the exact paper methodology by running the Python modules sequentially.
 
 1. Data Preprocessing (Hybrid Imputation)
+
 Reconstructs the estuarine sequence using gap-size dependent PCHIP/Linear algorithms to preserve the diurnal inequality without inducing phase leakage.
 
 ```bash
 python -m src.data_preprocessing --input "data/sample/raw_sample.csv" --output "data/processed/clean_sample.csv"
 ```
 
-2. PI-STOF Multi-Objective Grid Search Executes the frequency-domain (FFT/PSD) analysis and computes $\mathcal{L}_{Leakage}$, $\mathcal{L}_{Ortho}$, and $\mathcal{L}_{Baseflow}$ over the physically bounded search space.
+2. PI-STOF Multi-Objective Grid Search
+
+Executes the frequency-domain (FFT/PSD) analysis and computes $\mathcal{L}_{Leakage}$, $\mathcal{L}_{Ortho}$, and $\mathcal{L}_{Baseflow}$ over the physically bounded search space.
 
 ```bash
 python -m src.pi_stof_engine --input "data/processed/clean_sample.csv" --output "results/tables/table_2_grid_search.csv"
 ```
 
-3. Generate Paper Artifacts (Evaluation) Automatically disentangles the signals using the optimal PI-STOF configuration ($w_{25}=7, w_{354}=91$) vs. unconstrained MSTL baseline, generating all publication figures and ablation tables.
+3. Generate Paper Artifacts (Evaluation)
+
+Automatically disentangles the signals using the optimal PI-STOF configuration ($w_{25}=7, w_{354}=91$) vs. unconstrained MSTL baseline, generating all publication figures and ablation tables.
 
 ```bash
 python -m src.evaluation --input "data/processed/clean_sample.csv" --figures_dir "results/figures" --tables_dir "results/tables"
