@@ -41,7 +41,7 @@ python -m src.data_preprocessing --input "data/sample/raw_sample.csv" --output "
 
 2. PI-STOF Multi-Objective Grid Search
 
-Executes the frequency-domain (FFT/PSD) analysis and computes ℒ<sub>Leakage</sub>, ℒ<sub>Ortho</sub>, and ℒ<sub>Baseflow</sub> over the physically bounded search space.
+Executes the frequency-domain (FFT/PSD) analysis and computes $\mathcal{L}_{Leakage}$, $\mathcal{L}_{Ortho}$, and $\mathcal{L}_{Baseflow}$ over the physically bounded search space.
 
 ```bash
 python -m src.pi_stof_engine --input "data/processed/clean_sample.csv" --output "results/tables/table_2_grid_search.csv"
