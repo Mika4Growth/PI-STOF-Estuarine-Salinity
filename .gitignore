@@ -8,6 +8,6 @@ venv/
 pistof_env/
 
 .ipynb_checkpoints/
-
+data\raw\raw_xuanhoa_2019_2024.csv
 *.log
 .DS_Store
