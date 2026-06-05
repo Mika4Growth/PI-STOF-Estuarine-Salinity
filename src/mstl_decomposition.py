@@ -41,7 +41,7 @@ def execute_physics_mstl(series: pd.Series, w_25: int, w_354: int, w_trend: int 
         endog=series,
         periods=periods,
         windows=windows,
-        trend_kwargs={'trend': w_trend} # Lock the macroscopic catchment inertia
+        stl_kwargs={'trend': w_trend} # Lock the macroscopic catchment inertia
     )
     
     # Execute the decomposition

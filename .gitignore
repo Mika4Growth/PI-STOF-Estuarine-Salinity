@@ -1,0 +1,13 @@
+data/raw/
+
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+pistof_env/
+
+.ipynb_checkpoints/
+
+*.log
+.DS_Store

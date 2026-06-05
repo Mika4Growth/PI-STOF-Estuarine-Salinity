@@ -1,0 +1,4 @@
+Model,L_Leakage,L_Ortho,L_Baseflow,L_PI
+"Baseline 1: MSTL Default (11, 15, Auto Trend)",0.040305,0.031956,0.008986,0.081246
+"Baseline 2: Ablated MSTL (11, 15, Trend=4381)",0.038951,0.03115,0.008502,0.078603
+"PI-STOF: Optimal PGML (7, 91, Trend=4381)",0.006171,0.018937,0.008778,0.033886
