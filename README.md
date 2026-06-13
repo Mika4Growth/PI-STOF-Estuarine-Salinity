@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Reproducibility: Artifact Evaluated](https://img.shields.io/badge/Reproducibility-Artifact%20Evaluated-success.svg)](#)
 
-> **Official Repository for the Paper:** "Knowledge Discovery in Estuarine Salinity: A Physics-Informed Spectral-Temporal Optimization Framework (PI-STOF) for MSTL Decomposition" (Submitted to **CSoNet 2026**).
+> **Official Repository for the Paper:** "Knowledge Discovery in Estuarine Salinity: A Physics-Informed Spectral-Temporal Optimization Framework (PI-STOF) for MSTL" (Submitted to **CSoNet 2026**).
 
 ## 📖 Abstract
 Accurate time-series decomposition of estuarine water levels is critical for salinity intrusion modeling. Standard algorithms like Multiple Seasonal-Trend decomposition using Loess (MSTL) often fail in complex coastal hydrodynamics. Constrained by time-domain loss functions and rigid integer-period assumptions, standard MSTL induces high-frequency spectral leakage and feature entanglement. 
@@ -29,7 +29,7 @@ pip install -r requirements.txt
 ```
 
 ## 🚀 How to Run the Pipeline
-The codebase is structured to decouple data engineering from the optimization engine. You can replicate the exact paper methodology by running the Python modules sequentially.
+The codebase is structured to decouple data engineering from the optimization engine. You can replicate the paper's methodology exactly by running the Python modules sequentially.
 
 1. Data Preprocessing (Hybrid Imputation)
 
@@ -67,7 +67,7 @@ By executing the pipeline above, reviewers will automatically regenerate the cor
 Reviewers matching the output of `Table_3_Ablation.csv` against Table 2 and Table 3 in the manuscript PDF will observe that the absolute physical loss values ($\mathcal{L}_{PI}$) in this CI/CD repository are slightly higher (e.g., PI-STOF yields $\approx 0.033$ here vs. $\approx 0.018$ in the paper).
 
 Scientific Justification:
-This is an expected mathematical behavior of the Fast Fourier Transform (FFT). The paper computes the Power Spectral Density (PSD) over the full 5.5-year continuous tensor ($N \approx 49,680$ points), yielding extremely fine-grained frequency resolution. This open-source repository uses a lightweight 1-year sample ($N = 8,784$ points) to ensure fast, local execution for reviewers. The reduced sequence length inherently thickens the frequency bins ($\Delta f$), causing minor spectral smearing which marginally elevates the localized energy integration.
+This is an expected mathematical behavior of the Fast Fourier Transform (FFT). The paper computes the Power Spectral Density (PSD) over the full 5.5-year continuous tensor ($N \approx 49,680$ points), yielding extremely fine-grained frequency resolution. This open-source repository uses a lightweight 1-year sample ($N = 8,784$ points) to ensure fast, local execution for reviewers. The reduced sequence length inherently thickens the frequency bins ($\Delta f$), causing minor spectral smearing, which marginally elevates the localized energy integration.
 
 Crucially, the relative structural superiority remains perfectly robust: PI-STOF still demonstrates a >58% reduction in physical loss compared to the unconstrained MSTL baseline, preserving the scientific claims validated in the manuscript.
 
